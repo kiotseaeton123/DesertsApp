@@ -10,10 +10,10 @@ Users are shown desert recipes in alphabetical order, and when the user selects 
 
 ## Application
 * DesertsApp is the application main and initializes the root view `ContentVIew()`
-* ContentView contains a TabView for HomeView and SettingsView
-  - HomeView contains technical interview requirements
-  - SettingsView for later implementation of persistence data for user preferences
-* HomeView contains a NavigationView for sorted list of meals
-  - Links to DescriptionView for meal details
-* DescriptionView contains meal details
+* `ContentView` contains a `TabView` for `HomeView` and `SettingsView`
+  - `HomeView` contains technical interview requirements
+  - `SettingsView` for later implementation of persistence data for user preferences
+* `HomeView` contains a `NavigationView` for sorted list of meals
+  - Links to `DescriptionView` for meal details
+* `DescriptionView` contains meal details
   
