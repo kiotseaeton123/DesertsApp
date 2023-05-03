@@ -7,20 +7,29 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        
+        TabView {
+            
+            HomeView().tabItem{Image(systemName: "house.fill")}
+            SettingsView().tabItem{Image(systemName: "gearshape")}
+
         }
-        .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+
+struct SettingsView: View{
+    var body: some View{
+        Text("settings")
     }
 }
