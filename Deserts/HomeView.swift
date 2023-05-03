@@ -4,7 +4,10 @@
 //
 //  Created by zhongyuan liu on 5/2/23.
 //
-
+/*
+ MARK: HomeView contains NavigationView for sorted list of meals
+ Links to DescriptionView for details of a meal
+ */
 import SwiftUI
 
 
@@ -13,20 +16,22 @@ struct HomeView: View {
     @State var sortedMeals = [String: [Meal]]()
     
     var body: some View {
+        //        navigation view for List of deserts and corresponding DescriptionView that details desert information
         NavigationView {
             List{
-//                sort meals by section(first letter)
+                //                sort meals by section(first letter)
                 ForEach(sortedMeals.keys.sorted(), id: \.self){ key in
                     
-//                    sort meals by alphabet and display
+                    //                    sort meals by alphabet and display
                     Section(header: Text(key)){
                         ForEach(sortedMeals[key]!.sorted(by: { $0.name < $1.name })) { meal in
-//                            Text(meal.name)
                             NavigationLink(meal.name, destination: DescriptionView(id: meal.id))
                         }
                     }
                     
                 }
+                
+                //                decoration: end list with a colorful rectangle
                 ZStack{
                     Text("Bon Appetit")
                     RoundedRectangle(cornerRadius: 18.0)
@@ -44,6 +49,7 @@ struct HomeView: View {
     }
     
     private func getMeals(){
+        //        request API data and decode as Swift struct MealList
         guard let url = URL(string: "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert") else{return}
         
         URLSession.shared.dataTask(with: url){data, response, error in
@@ -54,18 +60,10 @@ struct HomeView: View {
                 DispatchQueue.main.async {
                     
                     //                    group by first letter for convenience of displaying meals by alphabet sections
-                    print("in dispatch")
                     self.sortedMeals = Dictionary(grouping: decodedMeals.meals, by: {String($0.name.prefix(1)).uppercased()})
-                    print(sortedMeals)
                 }
             }
         }.resume()
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
     }
 }
 
@@ -96,28 +94,10 @@ struct MealList: Decodable{
 struct Meal: Decodable, Identifiable {
     let id: String
     let name: String
-    //    let category: String
-    //    let instructions: String
-    let imageUrl: URL?
-    
     //    CodingKeys enumeration to match property name with encoded keys
     enum CodingKeys: String, CodingKey {
         case id = "idMeal"
         case name = "strMeal"
-        //        case category = "strCategory"
-        //        case instructions = "strInstructions"
-        case imageUrl = "strMealThumb"
     }
 }
 
-struct SectionHeader: View {
-    let systemName: String
-    let text: String
-    
-    var body: some View {
-        HStack{
-            Text(Image(systemName: systemName))
-            Text(text)
-        }.font(.title2).foregroundColor(.blue)
-    }
-}

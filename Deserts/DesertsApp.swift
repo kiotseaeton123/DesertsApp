@@ -11,6 +11,7 @@ import SwiftUI
 struct DesertsApp: App {
     var body: some Scene {
         WindowGroup {
+            //            initialize root view
             ContentView()
         }
     }
