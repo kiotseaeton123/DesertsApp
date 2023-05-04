@@ -8,7 +8,7 @@
  MARK: DescriptionView contains meal details
  
  TODO: Update Struct Details
- currently has exhaustive CodingKeys enumeration and exhaustive decoding of ingredients and measurements
+ currently has exhaustive CodingKeys enumeration
  */
 import SwiftUI
 
@@ -26,17 +26,9 @@ struct DescriptionView: View {
                         Text(meal.instructions)
                     }
                     Section(header: Text("Ingredients")){
-                        //                        TODO: format ingredients with corresponding measurements
-                        /*
-                         ForEach(zip(meal.ingredients, meal.measurements), id: \.self){ (ingredient, measure) in
-                         Text("\(ingredient) \(measure)")
-                         }
-                         */
-                        ForEach(meal.ingredients, id: \.self){ ingredient in
-                            Text(ingredient)
-                        }
-                        ForEach(meal.measurements, id: \.self){ measure in
-                            Text(measure)
+                        //                        format ingredient with corresponding measurement
+                        ForEach(Array(zip(meal.ingredients, meal.measurements)), id: \.0){ (ingredient, measure) in
+                            Text("\(measure) \(ingredient)")
                         }
                     }
                 }
@@ -141,120 +133,13 @@ struct Details: Decodable, Identifiable {
         name = try container.decode(String.self, forKey: .name)
         instructions = try container.decode(String.self, forKey: .instructions)
         
-        //        TODO: figure out why this doesn't decode: .init "strIngredient\(i)
+        ingredients = (1...20)
+            .compactMap { try? container.decode(String.self, forKey: .init(stringValue: "strIngredient\($0)")!) }
+            .filter { !$0.isEmpty }
         
-        /*
-         var ingredientsArray: [String] = []
-         for i in 1...20{
-         
-         if let ingredient = try container.decodeIfPresent(String.self, forKey: .init(stringValue: "strIngredient\(i)") ?? .id){
-         
-         if ingredient.isEmpty{
-         break
-         }
-         ingredientsArray.append(ingredient)
-         }
-         }
-         ingredients = ingredientsArray
-         */
+        measurements = (1...20)
+            .compactMap{try? container.decode(String.self, forKey: .init(stringValue: "strMeasure\($0)")!)}
+            .filter { !$0.isEmpty }
         
-        var ingredientsArray: [String] = []
-        
-        if let ingredient = try? container.decode(String.self, forKey: .ingredient1){
-            ingredientsArray.append(ingredient)
-        }
-        if let ingredient = try? container.decode(String.self, forKey: .ingredient2){
-            ingredientsArray.append(ingredient)
-        }
-        if let ingredient = try? container.decode(String.self, forKey: .ingredient3){
-            ingredientsArray.append(ingredient)
-        }
-        if let ingredient = try? container.decode(String.self, forKey: .ingredient4){
-            ingredientsArray.append(ingredient)
-        }
-        if let ingredient = try? container.decode(String.self, forKey: .ingredient5){
-            ingredientsArray.append(ingredient)
-        }
-        if let ingredient = try? container.decode(String.self, forKey: .ingredient6){
-            ingredientsArray.append(ingredient)
-        }
-        if let ingredient = try? container.decode(String.self, forKey: .ingredient7){
-            ingredientsArray.append(ingredient)
-        }
-        if let ingredient = try? container.decode(String.self, forKey: .ingredient8){
-            ingredientsArray.append(ingredient)
-        }
-        if let ingredient = try? container.decode(String.self, forKey: .ingredient9){
-            ingredientsArray.append(ingredient)
-        }
-        if let ingredient = try? container.decode(String.self, forKey: .ingredient10){
-            ingredientsArray.append(ingredient)
-        }
-        ingredients = ingredientsArray
-        
-        var MeasurementsArray: [String] = []
-        
-        if let measure = try? container.decode(String.self, forKey: .measure1){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure2){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure3){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure4){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure5){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure6){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure7){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure8){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure9){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure10){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure11){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure12){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure13){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure14){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure15){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure16){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure17){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure18){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure19){
-            MeasurementsArray.append(measure)
-        }
-        if let measure = try? container.decode(String.self, forKey: .measure20){
-            MeasurementsArray.append(measure)
-        }
-        
-        measurements = MeasurementsArray
     }
 }

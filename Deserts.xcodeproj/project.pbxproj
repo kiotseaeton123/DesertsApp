@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D50DEDE32A032DD1003D9417 /* HomeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50DEDE22A032DD1003D9417 /* HomeViewTests.swift */; };
 		D5DEA0552A001AC100D47F9F /* DesertsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DEA0542A001AC100D47F9F /* DesertsApp.swift */; };
 		D5DEA0572A001AC100D47F9F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DEA0562A001AC100D47F9F /* ContentView.swift */; };
 		D5DEA0592A001AC300D47F9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5DEA0582A001AC300D47F9F /* Assets.xcassets */; };
@@ -15,7 +16,19 @@
 		D5DEA0652A019F5F00D47F9F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DEA0642A019F5F00D47F9F /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D50DEDDD2A02FB74003D9417 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5DEA0492A001AC100D47F9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5DEA0502A001AC100D47F9F;
+			remoteInfo = Deserts;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		D50DEDD92A02FB74003D9417 /* DesertsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesertsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D50DEDE22A032DD1003D9417 /* HomeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewTests.swift; sourceTree = "<group>"; };
 		D5DEA0512A001AC100D47F9F /* Deserts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deserts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5DEA0542A001AC100D47F9F /* DesertsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesertsApp.swift; sourceTree = "<group>"; };
 		D5DEA0562A001AC100D47F9F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,6 +39,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D50DEDD62A02FB74003D9417 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D5DEA04E2A001AC100D47F9F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -36,10 +56,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D50DEDDA2A02FB74003D9417 /* DesertsTests */ = {
+			isa = PBXGroup;
+			children = (
+				D50DEDE22A032DD1003D9417 /* HomeViewTests.swift */,
+			);
+			path = DesertsTests;
+			sourceTree = "<group>";
+		};
 		D5DEA0482A001AC100D47F9F = {
 			isa = PBXGroup;
 			children = (
 				D5DEA0532A001AC100D47F9F /* Deserts */,
+				D50DEDDA2A02FB74003D9417 /* DesertsTests */,
 				D5DEA0522A001AC100D47F9F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				D5DEA0512A001AC100D47F9F /* Deserts.app */,
+				D50DEDD92A02FB74003D9417 /* DesertsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,6 +106,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D50DEDD82A02FB74003D9417 /* DesertsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D50DEDE12A02FB74003D9417 /* Build configuration list for PBXNativeTarget "DesertsTests" */;
+			buildPhases = (
+				D50DEDD52A02FB74003D9417 /* Sources */,
+				D50DEDD62A02FB74003D9417 /* Frameworks */,
+				D50DEDD72A02FB74003D9417 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D50DEDDE2A02FB74003D9417 /* PBXTargetDependency */,
+			);
+			name = DesertsTests;
+			productName = DesertsTests;
+			productReference = D50DEDD92A02FB74003D9417 /* DesertsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D5DEA0502A001AC100D47F9F /* Deserts */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5DEA05F2A001AC300D47F9F /* Build configuration list for PBXNativeTarget "Deserts" */;
@@ -103,6 +151,10 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					D50DEDD82A02FB74003D9417 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = D5DEA0502A001AC100D47F9F;
+					};
 					D5DEA0502A001AC100D47F9F = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -122,11 +174,19 @@
 			projectRoot = "";
 			targets = (
 				D5DEA0502A001AC100D47F9F /* Deserts */,
+				D50DEDD82A02FB74003D9417 /* DesertsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D50DEDD72A02FB74003D9417 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D5DEA04F2A001AC100D47F9F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -139,6 +199,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D50DEDD52A02FB74003D9417 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D50DEDE32A032DD1003D9417 /* HomeViewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D5DEA04D2A001AC100D47F9F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,7 +220,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D50DEDDE2A02FB74003D9417 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5DEA0502A001AC100D47F9F /* Deserts */;
+			targetProxy = D50DEDDD2A02FB74003D9417 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		D50DEDDF2A02FB74003D9417 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F69WJ27LN4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kiotseaeton.net.DesertsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Deserts.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Deserts";
+			};
+			name = Debug;
+		};
+		D50DEDE02A02FB74003D9417 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F69WJ27LN4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kiotseaeton.net.DesertsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Deserts.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Deserts";
+			};
+			name = Release;
+		};
 		D5DEA05D2A001AC300D47F9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -328,6 +440,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D50DEDE12A02FB74003D9417 /* Build configuration list for PBXNativeTarget "DesertsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D50DEDDF2A02FB74003D9417 /* Debug */,
+				D50DEDE02A02FB74003D9417 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D5DEA04C2A001AC100D47F9F /* Build configuration list for PBXProject "Deserts" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

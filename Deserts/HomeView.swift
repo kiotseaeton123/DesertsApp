@@ -100,4 +100,3 @@ struct Meal: Decodable, Identifiable {
         case name = "strMeal"
     }
 }
-
