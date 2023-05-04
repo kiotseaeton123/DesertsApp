@@ -17,3 +17,7 @@ Users are shown desert recipes in alphabetical order, and when the user selects 
   - Links to `DescriptionView` for meal details
 * `DescriptionView` contains meal details
   
+## Instructions to run
+1. fork or simply download the repository
+2. double click Deserts.xcodeproj to open project in xcode
+3. commant + R to run project on simulator or device
